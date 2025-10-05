@@ -1,0 +1,113 @@
+{
+  "Name": "db2",
+  "Tables": [
+    {
+      "Name": "tb1",
+      "Columns": [
+        {
+          "Name": "col32",
+          "TypeName": "String"
+        },
+        {
+          "Name": "col22",
+          "TypeName": "Integer"
+        },
+        {
+          "Name": "col33",
+          "TypeName": "String"
+        }
+      ],
+      "Rows": [
+        {
+          "Values": [
+            "12",
+            "123",
+            "qwe"
+          ]
+        },
+        {
+          "Values": [
+            "124",
+            "12323",
+            "qwer"
+          ]
+        },
+        {
+          "Values": [
+            "",
+            "213",
+            "qwer"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "tb3",
+      "Columns": [
+        {
+          "Name": "col34",
+          "TypeName": "Real"
+        }
+      ],
+      "Rows": [
+        {
+          "Values": [
+            "33"
+          ]
+        },
+        {
+          "Values": [
+            "33,33"
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "tb4",
+      "Columns": [
+        {
+          "Name": "col44",
+          "TypeName": "Integer"
+        }
+      ],
+      "Rows": [
+        {
+          "Values": [
+            "123"
+          ]
+        },
+        {
+          "Values": [
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "tb5",
+      "Columns": [
+        {
+          "Name": "col55",
+          "TypeName": "Integer"
+        }
+      ],
+      "Rows": [
+        {
+          "Values": [
+            "1234"
+          ]
+        },
+        {
+          "Values": [
+            ""
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "tb6",
+      "Columns": [],
+      "Rows": []
+    }
+  ]
+}

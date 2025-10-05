@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             xmlns:editors="clr-namespace:Syncfusion.Maui.Inputs;assembly=Syncfusion.Maui.Inputs"
+             xmlns:syncfusion="clr-namespace:Syncfusion.Maui.DataGrid;assembly=Syncfusion.Maui.DataGrid"
+             x:Class="ITlab1.MainPage">
+    
+    <ContentPage.MenuBarItems>
+        <MenuBarItem Text="DATABASE">
+            <MenuFlyoutItem Text="Create a new database"
+                            Clicked="OnCreateDatabase" />
+            <MenuFlyoutItem Text="Load a database from user`s drive"
+                            Clicked="OnLoadDatabase" />
+        </MenuBarItem>
+        <MenuBarItem Text="Save To...">
+            <MenuFlyoutItem Text="user`s drive"
+                 Clicked="OnSaveDatabaseToFile" />
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>
+
+    <ScrollView x:Name="MainScroll" IsVisible="False">
+        <VerticalStackLayout Spacing="8">
+            <Frame BorderColor="Gray" CornerRadius="5">
+                <Label x:Name="DbNameLabel" Text="No database yet"/>
+            </Frame>
+
+            <Grid RowDefinitions="Auto,*"
+              ColumnDefinitions="*,*,*,*,*"
+              ColumnSpacing="8"
+              RowSpacing="12">
+
+                <!-- TABLE -->
+                <Frame Grid.Row="0" Grid.Column="0" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="TABLE" FontAttributes="Bold" />
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="Name: " VerticalTextAlignment="Center"/>
+                            <Entry x:Name="TableNameEntry" WidthRequest="200"/>
+                        </HorizontalStackLayout>
+                        <Button Clicked="OnAddTable" 
+                                Text="Add new"/>
+                        <Button  
+                                Text="Delete"
+                                Clicked="OnDeleteTable"
+                                BackgroundColor="DarkViolet"/>
+                    </VerticalStackLayout>
+                </Frame>
+                
+                <!--COLUMN-->
+                <Frame Grid.Row="0" Grid.Column="1" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="COLUMN" FontAttributes="Bold" />
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="Name: " VerticalTextAlignment="Center"/>
+                            <Entry x:Name="ColumnNameEntry" WidthRequest="200"/>
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout Spacing="8">
+                            <Label Text="Type: " VerticalTextAlignment="Center"/>
+                            <editors:SfComboBox x:Name="comboBox"
+                                            ItemsSource="{Binding DataTypes}"
+                                            IsEditable="false"
+                                            WidthRequest="208"
+                                            HeightRequest="45"
+                                            />
+                        </HorizontalStackLayout>
+
+                        <Button Clicked="OnAddColumn"
+                                Text="Add new"/>
+                        <Button Text="Delete"  Clicked="OnDeleteColumn"
+                                BackgroundColor="DarkViolet"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!--Row-->
+                <Frame Grid.Row="0" Grid.Column="2" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="ROW" FontAttributes="Bold" />
+                        <Button Clicked="OnAddRow"
+                                Text="Add new"/>
+                        <Button Text="Delete"
+                                Clicked="OnDeleteRow"/>
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!--TXT PATH-->
+                <Frame Grid.Row="0" Grid.Column="3" BorderColor="Gray">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="TxtPath" FontAttributes="Bold" />
+                        <Entry x:Name="TxtPathEntry" WidthRequest="258"/>
+                        <Button Clicked="OnLoadTxtPath"
+                                Text="Load path"/>
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
+
+            <tabView:SfTabView x:Name="tabView" 
+                               SelectionChanged="tabView_SelectionChanged"
+                               TabWidthMode="SizeToContent" 
+                               TabBarBackground="LightBlue" />
+
+            <!--ColumnResizing="DataGrid_ColumnResizing"-->
+            <syncfusion:SfDataGrid x:Name="dataGrid"
+                                   GridLinesVisibility="Both"
+                                   HeaderGridLinesVisibility="Both"
+                                   ColumnWidthMode="FitByHeader"
+                                   AllowResizingColumns="True"
+                                   AllowEditing="True"
+                                   EditTapAction="OnTap"
+                                   SelectionMode="Single"
+                                   SelectionUnit="Cell"
+                                   NavigationMode="Cell"
+                                   AutoGenerateColumnsMode="None"
+                                   AllowDraggingColumn="True"
+                                   CurrentCellBeginEdit="DataGrid_CurrentCellBeginEdit"
+                                   QueryColumnDragging="DataGrid_QueryColumnDragging"
+                                   CurrentCellEndEdit="DataGrid_CurrentCellEndEdit">
+                <syncfusion:SfDataGrid.DefaultStyle>
+                    <syncfusion:DataGridStyle ColumnDraggingIndicatorLineColor="DeepPink"/>
+                </syncfusion:SfDataGrid.DefaultStyle>
+            </syncfusion:SfDataGrid>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
