@@ -469,9 +469,9 @@ namespace ITlab1
                     return;
                 }
 
-                Table tbl = manager.CreateTable(TableNameEntry.Text);
-                //Table tbl = new Table(TableNameEntry.Text);
-                //db.Tables.Add(tbl);
+                //Table tbl = manager.CreateTable(TableNameEntry.Text);
+                Table tbl = new Table(TableNameEntry.Text);
+                db.Tables.Add(tbl);
 
                 SfTabItem tab = new SfTabItem { Header = TableNameEntry.Text };
                 tab.BindingContext = tbl; // прив'язка моделі таблиці до вкладки
